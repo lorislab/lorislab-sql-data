@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.lorislab.lib</groupId>
+    <artifactId>lorislab-lib-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <groupId>org.lorislab.lib</groupId>
+  <artifactId>lorislab-sql-data-parent</artifactId>
+  <name>lorislab-sql-data-parent</name>
+  <version>999-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+
+  <description>Lorislab SQL Data Extension</description>
+  <url>https://github.com/lorislab/lorislab-sql-data</url>
+
+  <organization>
+    <name>lorislab</name>
+    <url>https://lorislab.org</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>andrejpetras</id>
+      <name>Andrej Petras</name>
+      <organization>lorislab</organization>
+      <organizationUrl>https://lorislab.org</organizationUrl>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:lorislab/lorislab-sql-data.git</connection>
+    <developerConnection>scm:git:git@github.com:lorislab/lorislab-sql-data.git</developerConnection>
+    <url>https://github.com/lorislab/lorislab-sql-data</url>
+  </scm>
+
+  <modules>
+    <module>data</module>
+    <module>codegen</module>
+  </modules>
+  
+  <properties>
+    <!-- Maven configuration -->
+    <maven.compiler-plugin.version>3.13.0</maven.compiler-plugin.version>
+    <maven.surefire-plugin.version>3.5.2</maven.surefire-plugin.version>
+
+    <!-- TEST -->
+    <jakarta.enterprise.cdi-api.version>4.1.0</jakarta.enterprise.cdi-api.version>
+    <compile-testing.version>0.23.0</compile-testing.version>
+    <junit.version>6.0.1</junit.version>
+    <smallrye-mutiny-vertx-sql-client.version>3.21.3</smallrye-mutiny-vertx-sql-client.version>
+  </properties>
+    
+  <dependencyManagement>
+    <dependencies>
+      <!-- TEST -->
+      <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>${jakarta.enterprise.cdi-api.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.testing.compile</groupId>
+        <artifactId>compile-testing</artifactId>
+        <version>${compile-testing.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-launcher</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.smallrye.reactive</groupId>
+        <artifactId>smallrye-mutiny-vertx-sql-client</artifactId>
+        <version>${smallrye-mutiny-vertx-sql-client.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

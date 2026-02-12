@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.lorislab.lib</groupId>
+    <artifactId>lorislab-sql-data-parent</artifactId>
+    <version>999-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>lorislab-sql-data-codegen</artifactId>
+  <packaging>jar</packaging>
+
+  <properties>
+    <test.jvm.flags>
+      --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+      --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+      --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED
+      --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+      --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+      --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+    </test.jvm.flags>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.lorislab.lib</groupId>
+      <artifactId>lorislab-sql-data</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>io.smallrye.reactive</groupId>
+      <artifactId>smallrye-mutiny-vertx-sql-client</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.enterprise</groupId>
+      <artifactId>jakarta.enterprise.cdi-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.testing.compile</groupId>
+      <artifactId>compile-testing</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>${project.basedir}/src/test/java</directory>
+      </testResource>
+      <testResource>
+        <directory>${project.basedir}/src/test/resources</directory>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler-plugin.version}</version>
+        <configuration>
+          <proc>none</proc>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire-plugin.version}</version>
+        <configuration>
+          <argLine>${test.jvm.flags}</argLine>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
