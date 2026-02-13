@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>lorislab-sql-data</artifactId>
+  <name>lorislab-sql-data</name>
   <packaging>jar</packaging>
 
 </project>

@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>lorislab-sql-data-codegen</artifactId>
+  <name>lorislab-sql-data-codegen</name>
   <packaging>jar</packaging>
 
   <properties>
